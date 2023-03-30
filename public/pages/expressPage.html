@@ -1,0 +1,90 @@
+<div id="page-container" class="page-container">
+    <h1 style="margin-top: 10vh">$PAGETITLE</h1>
+    <p>
+        Express, is a back end web application framework for building RESTful APIs with Node.js.
+        It is designed for building web applications and APIs.
+        <br>
+        It has been called the de facto standard server framework for Node.js.
+    </p>
+    <p>
+        The installation of Node.js is a prerequisite, but otherwise after simply creating a folder for our application and
+         changing our current working directory to that, we can easily install Express by running the following command:
+    </p>
+    <pre class="language-powershell cs-overwrite cs-one-line">
+        <code>
+            npm install express
+        </code>
+    </pre>
+    <p>
+        Then we create an app.js file in the root folder and in that file we initialize the server, define the port,
+        get feedback in the console about the running application and create simple "GET" method on the root URL
+        that will serve us the "Hello World!" string.
+    </p>
+    <pre class="language-javascript cs-overwrite">
+        <code>
+    const express = require('express');
+    const app = express();
+    const port = 8080;
+
+    app.get('/', (req, res) => {
+        res.send('Hello World!');
+    })
+
+    app.listen(port, () => {
+        console.log(`App listening on port ${port}`);
+    });
+        </code>
+    </pre>
+    <p>
+        Further on we can render html pages on the server side and after a small initial delay at the server's star-up,
+        our application will be more responsive in loading the pages. In order to do that we create a basic template
+        engine for ourselves.
+        First, in the "package.json" file we need to include the following key-value pair to streamline import/export in
+        our application:
+    </p>
+    <pre class="language-json cs-overwrite cs-one-line">
+        <code>
+            {
+            "dependencies": {
+                "express": "^4.18.2"
+            },
+            "type": "module"
+            }
+        </code>
+    </pre>
+    <p>
+        We can create a templateEngine.js file now, import "fs" and use the "readFileSync" function to read the file
+        from the
+        specified path into memory. We turn the results into string and save it in a variable.
+    </p>
+    <pre class="language-javascript cs-overwrite">
+        <code>
+        import fs from "fs";
+
+        export const renderPage = (path) => {
+            const pageContent = fs.readFileSync(path).toString();
+            return (pageContent);
+        }
+        </code>
+    </pre>
+    <p>
+        We can easily call our exported "renderPage" function in the app.js file now.
+    </p>
+    <pre class="language-javascript cs-overwrite">
+        <code>
+        import {renderPage} from "./util/templateEngine.js";
+
+        app.get("/", (req, res) => {
+            res.send(renderPage("./public/pages/homePage.html"));
+        })
+        </code>
+    </pre>
+    <p>
+        Having our own template engine enables us to use variables inside the html files and reuse components across our pages.
+    </p>
+
+
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<div class="page-container"
+    style="display: flex; justify-content: center;">
+    <div id="page-grid" style="
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        column-gap: 6vw">
+    </div>
+</div>
+</div>
+</body>
+<script>
+    const pg = document.getElementById("page-grid");
+
+    for (let i = 0; i < 3; i++) {
+        const g1 = document.createElement("div");
+
+        for (let i = 0; i < 30; i++) {
+            const ht = document.createElement("h1");
+            ht.innerText = "Hello World!";
+            g1.appendChild(ht);
+        }
+        pg.appendChild(g1);
+    }
+</script>
+</html>

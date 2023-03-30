@@ -1,0 +1,45 @@
+<div id="page-container" class="page-container c-div">
+    <div class="c-div">
+        <div class="login-div">
+            <div class="form-div">
+                <form id="form" action="/api/login" method="POST">
+                    <div>
+                        <label for="un">
+                            username
+                        </label>
+                        <input placeholder="hint: 0" type="text" id="un" name="username">
+                    </div>
+                    <div>
+                        <label for="pw">
+                            password
+                        </label>
+                        <input placeholder="hint: 0" type="password" id="pw"  name="password">
+                    </div>
+                </form>
+                <div>
+                    <button id="button" class="login-button">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<script>
+    const username = document.getElementById("un");
+    const password = document.getElementById("pw");
+    const button = document.getElementById("button");
+    const form = document.getElementById("form");
+
+
+    button.addEventListener("click", ()=> {
+        if(username.value !== "0" && password.value !== "0") {
+            alert("Incorrect user credentials! Try again");
+            form.reset();
+        } else {
+            form.submit();
+        }
+    })
+
+</script>
+</html>
