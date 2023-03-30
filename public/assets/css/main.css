@@ -111,6 +111,11 @@ input {
     border-radius: 5px;
     box-sizing: border-box;
 }
+input:focus {
+    border: 4px solid rgba(26, 203, 127, 0.94);
+    border-radius: 5px;
+    outline: none;
+}
 textarea {
     width: 100%;
     padding: 12px 20px;
@@ -119,6 +124,11 @@ textarea {
     border: 4px solid #1ACB7F7A;
     border-radius: 5px;
     box-sizing: border-box;
+}
+textarea:focus {
+    border: 4px solid rgba(26, 203, 127, 0.94);
+    border-radius: 5px;
+    outline: none;
 }
 .login-button {
     width: 100%;
