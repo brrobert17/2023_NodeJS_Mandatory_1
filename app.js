@@ -10,57 +10,64 @@ const homeConfig = {
     pagePath: "./public/pages/homePage.html",
     pageTitle: "HOME"
 };
+const homePage = renderPage(homeConfig);
 app.get("/", (req, res) => {
-    res.send(renderPage(homeConfig));
+    res.send(homePage);
 })
 
 const expressConfig = {
     pagePath: "./public/pages/expressPage.html",
     pageTitle: "Express"
 };
+const expressPage = renderPage(expressConfig);
 app.get("/express", (req, res) => {
-    res.send(renderPage(expressConfig));
+    res.send(expressPage);
 })
 
 const jsConfig = {
     pagePath: "./public/pages/jsPage.html",
     pageTitle: "JavaScript"
 };
+const jsPage = renderPage(jsConfig);
 app.get("/js", (req, res) => {
-    res.send(renderPage(jsConfig));
+    res.send(jsPage);
 })
 
 const nodeConfig = {
     pagePath: "./public/pages/nodePage.html",
     pageTitle: "Node.js"
 };
+const nodePage = renderPage(nodeConfig);
 app.get("/node", (req, res) => {
-    res.send(renderPage(nodeConfig));
+    res.send(nodePage);
 })
 
 const restConfig = {
     pagePath: "./public/pages/restApiPage.html",
     pageTitle: "RestAPI"
 };
+const restPage = renderPage(restConfig);
 app.get("/rest", (req, res) => {
-    res.send(renderPage(restConfig));
+    res.send(restPage);
 })
 
 const loginConfig = {
     pagePath: "./public/pages/loginPage.html",
     pageTitle: "Login"
 };
+const loginPage = renderPage(loginConfig);
 app.get("/login", (req, res) => {
-    res.send(renderPage(loginConfig));
+    res.send(loginPage);
 })
 
 const adminConfig = {
     pagePath: "./public/pages/adminPage.html",
     pageTitle: "Admin"
 };
+const adminPage = renderPage(adminConfig);
 app.post("/api/login", (req,res) => {
     if(req.body.username === "0" && req.body.password === "0") {
-        res.send(renderPage(adminConfig));
+        res.send(adminPage);
     } else {
         res.send("Wrong!");
     }
